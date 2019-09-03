@@ -37,7 +37,8 @@ class ofApp : public ofBaseApp{
     	float width;
     	float height;
 
-        float smSqSize;
+        float fixedWidth = 1920.0;
+        float fixedHeight = 1080.0;
 
     	float universalCounter = 0.0;
 

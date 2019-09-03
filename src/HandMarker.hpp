@@ -12,7 +12,7 @@ class HandMarker
 public:
 
 	HandMarker();
-    HandMarker(glm::vec2 center, ofColor _color);
+    HandMarker(glm::vec2 center, ofColor _color, bool _isCircle);
 
     void setup();
 	void update(float _inc);
@@ -23,4 +23,6 @@ public:
     float inc;
 
 	ofColor color;
+
+	bool isCircle;
 };

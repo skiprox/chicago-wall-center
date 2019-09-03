@@ -6,8 +6,6 @@ void ofApp::setup(){
 	ofSetCircleResolution(100);
 	width = ofGetWidth();
 	height = ofGetHeight();
-	// Small square size
-	smSqSize = height/5.0;
 	mySerial.listDevices();
 	vector <ofSerialDeviceInfo> deviceList = mySerial.getDeviceList();
 	mySerial.setup(0, baud); //open the first device
@@ -28,33 +26,34 @@ void ofApp::setupImages(){
 //--------------------------------------------------------------
 void ofApp::setupAnimations(){
 	/**
-	 * ALL THE ANIMATIONS GO HERE
+	 * ALL THE LINE ANIMATIONS GO HERE
 	 */
 	vector<std::array<glm::vec2, 2>> pts;
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1064), glm::vec2(1615, 684)}});
-	buildingDashedLines.push_back(DashedLine(pts, 5.0, red, 250, false));
+	// Lower Building Dashed Line
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1086), glm::vec2(1615, 706)}});
+	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1130), glm::vec2(1670, 750)}});
-	buildingDashedLines.push_back(DashedLine(pts, 5.0, red, 250, false));
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1152), glm::vec2(1670, 772)}});
+	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1070), glm::vec2(1725, 690)}});
-	buildingDashedLines.push_back(DashedLine(pts, 5.0, red, 250, false));
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1092), glm::vec2(1725, 712)}});
+	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1040), glm::vec2(1780, 660)}});
-	buildingDashedLines.push_back(DashedLine(pts, 5.0, red, 250, false));
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1062), glm::vec2(1780, 682)}});
+	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 995), glm::vec2(1835, 615)}});
-	buildingDashedLines.push_back(DashedLine(pts, 5.0, red, 250, false));
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 1017), glm::vec2(1835, 637)}});
+	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 960), glm::vec2(1890, 588)}});
-	buildingDashedLines.push_back(DashedLine(pts, 5.0, red, 250, false));
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 982), glm::vec2(1890, 610)}});
+	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	/**
 	 * ALL THE IMAGE ANIMATIONS GO HERE
 	 */
 	companiesAnimation = ImageAnimation(
 		companies,
-		glm::vec2(width/2.0, height - 120),
+		glm::vec2(fixedWidth/2.0, fixedHeight - 120),
 		glm::vec2(800, 200),
 		250
 	);
@@ -63,18 +62,18 @@ void ofApp::setupAnimations(){
 	 */
 	buildingMovement = ImageMovement(
 		building,
-		glm::vec2(400, 366),
-		glm::vec2(1760, 960),
-		glm::vec2(1760, 630),
+		glm::vec2(333, 260),
+		glm::vec2(1752, 982),
+		glm::vec2(1752, 652),
 		250
 	);
 	/**
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// MILLENIUM FALCON
-	handMarkers[0] = HandMarker(glm::vec2(width - 100, height - 100), red);
-	// ABOVE THE COMPANIES
-	handMarkers[1] = HandMarker(glm::vec2(width/3.0 - 80, height - 200), red);
+	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 100, fixedHeight - 100), red, true);
+	// CENTER OF THE COMPANIES
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
 }
 
 //--------------------------------------------------------------
@@ -198,11 +197,11 @@ void ofApp::checkShouldRunAnimations(int index){
 	// If it's the first button, we should run the animation
 	if (index == 0) {
 		shouldRunAnimation[index] = true;
-	} else if (index == 1) { // The good companies sensor
+	} else if (index == 1) { // The bad companies sensor
 		if (shouldRunAnimation[0]) {
 			shouldRunAnimation[index] = true;
 		}
-	} else if (index == 2) { // The left building text
+	} else if (index == 2) { // The lower building
 		if (shouldRunAnimation[1]) {
 			shouldRunAnimation[index] = true;
 		}
