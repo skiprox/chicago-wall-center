@@ -20,7 +20,8 @@ void ofApp::setup(){
 void ofApp::setupImages(){
 	background.load("images/background.png");
 	companies.load("images/companies.png");
-	building.load("images/building.png");
+	buildingBottom.load("images/building-bottom.png");
+	buildingTop.load("images/building-top.png");
 }
 
 //--------------------------------------------------------------
@@ -29,24 +30,28 @@ void ofApp::setupAnimations(){
 	 * ALL THE LINE ANIMATIONS GO HERE
 	 */
 	vector<std::array<glm::vec2, 2>> pts;
-	// Lower Building Dashed Line
+	// Lower Building Dashed Lines
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1086), glm::vec2(1615, 706)}});
-	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	buildingBottomDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1152), glm::vec2(1670, 772)}});
-	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	buildingBottomDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1092), glm::vec2(1725, 712)}});
-	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	buildingBottomDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1062), glm::vec2(1780, 682)}});
-	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	buildingBottomDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 1017), glm::vec2(1835, 637)}});
-	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	buildingBottomDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 982), glm::vec2(1890, 610)}});
-	buildingDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	buildingBottomDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	pts.clear();
+	// Upper Building Dashed Lines
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 660), glm::vec2(1615, 380)}});
+	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	/**
 	 * ALL THE IMAGE ANIMATIONS GO HERE
@@ -60,11 +65,19 @@ void ofApp::setupAnimations(){
 	/**
 	 * ALL THE IMAGE MOVEMENTS GO HERE
 	 */
-	buildingMovement = ImageMovement(
-		building,
+	// The bottom building
+	buildingBottomMovement = ImageMovement(
+		buildingBottom,
 		glm::vec2(333, 260),
 		glm::vec2(1752, 982),
 		glm::vec2(1752, 652),
+		250
+	);
+	buildingTopMovement = ImageMovement(
+		buildingTop,
+		glm::vec2(338, 268),
+		glm::vec2(1751, 658),
+		glm::vec2(1751, 274),
 		250
 	);
 	/**
@@ -74,6 +87,10 @@ void ofApp::setupAnimations(){
 	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 100, fixedHeight - 100), red, true);
 	// CENTER OF THE COMPANIES
 	handMarkers[1] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
+	// BOTTOM BUILDING
+	handMarkers[2] = HandMarker(glm::vec2(1752, 652), red, true);
+	// TOP BUILDING
+	handMarkers[3] = HandMarker(glm::vec2(1752, 230), red, true);
 }
 
 //--------------------------------------------------------------
@@ -130,15 +147,15 @@ void ofApp::drawBackground(){
 	ofSetColor(255);
 	// Draw up and down lines
 	for (int i = 0; i < 2; i++) {
-		ofDrawRectangle(width/3.0 * (i + 1) - 1, 0, 2, height);
+		ofDrawRectangle(width/3.0 * (i + 1) - 1, 0, 2, fixedHeight);
 		float divConst = 5.0;
 		if (i == 0) {
-			ofDrawRectangle(0, height/divConst, width, 2);
+			ofDrawRectangle(0, fixedHeight/divConst, fixedWidth, 2);
 		} else {
-			ofDrawRectangle(0, height - height/divConst, width, 2);
+			ofDrawRectangle(0, fixedHeight - fixedHeight/divConst, fixedWidth, 2);
 		}
 	}
-	background.draw(0, 0, width, height);
+	background.draw(0, 0, fixedWidth, fixedHeight);
 }
 
 //--------------------------------------------------------------
@@ -205,16 +222,8 @@ void ofApp::checkShouldRunAnimations(int index){
 		if (shouldRunAnimation[1]) {
 			shouldRunAnimation[index] = true;
 		}
-	} else if (index == 3) { // The right building text
-		if (shouldRunAnimation[1]) {
-			shouldRunAnimation[index] = true;
-		}
-	} else if (index == 4) { // The plane text
-		if (shouldRunAnimation[1]) {
-			shouldRunAnimation[index] = true;
-		}
-	} else if (index == 5) { // The ship text
-		if (shouldRunAnimation[1]) {
+	} else if (index == 3) { // The upper building
+		if (shouldRunAnimation[2]) {
 			shouldRunAnimation[index] = true;
 		}
 	}
@@ -232,34 +241,37 @@ void ofApp::runAnimation(int animationNum){
 			break;
 		case 2:
 			ofPushStyle();
-			buildingMovement.update(animationCounter[1]);
-			buildingMovement.draw();
-			for (int i = 0; i < buildingDashedLines.size(); i++) {
-				buildingDashedLines[i].update(animationCounter[1]);
-				buildingDashedLines[i].draw();
+			buildingBottomMovement.update(animationCounter[1]);
+			buildingBottomMovement.draw();
+			for (int i = 0; i < buildingBottomDashedLines.size(); i++) {
+				buildingBottomDashedLines[i].update(animationCounter[1]);
+				buildingBottomDashedLines[i].draw();
 			}
+			handMarkers[2].draw();
 			ofPopStyle();
 			break;
 		case 3:
-			ofDrawRectangle(width - width/3.0, 0, width/3.0, height/5.0);
+			ofPushStyle();
+			buildingTopMovement.update(animationCounter[2]);
+			buildingTopMovement.draw();
+			for (int i = 0; i < buildingTopDashedLines.size(); i++) {
+				buildingTopDashedLines[i].update(animationCounter[2]);
+				buildingTopDashedLines[i].draw();
+			}
+			handMarkers[3].draw();
+			ofPopStyle();
 			break;
 		case 4:
-			ofDrawRectangle(0, height/5.0, width/3.0, height - 2.0 * (height/5.0));
 			break;
 		case 5:
-			ofDrawRectangle(width/3.0, height/5.0, width/3.0, height - 2.0 * (height/5.0));
 			break;
 		case 6:
-			ofDrawRectangle(width - width/3.0, height/5.0, width/3.0, height - 2.0 * (height/5.0));
 			break;
 		case 7:
-			ofDrawRectangle(0, height - height/5.0, width/3.0, height/3.0);
 			break;
 		case 8:
-			ofDrawRectangle(width/3.0, height - height/5.0, width/3.0, height/3.0);
 			break;
 		case 9:
-			ofDrawRectangle(width/3.0 * 2, height - height/5.0, width/3.0, height/3.0);
 			break;
 		default:
 			cout << "WHAT FUCKING KEY IS THIS?? " << animationNum << endl;
