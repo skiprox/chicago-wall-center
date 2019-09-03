@@ -27,7 +27,7 @@ TextTyping::TextTyping(string _text, glm::vec2 _pos, ofColor _color, int _fontSi
 }
 
 void TextTyping::setup() {
-	myfont.load("OpenSans-Bold.ttf", fontSize);
+	myfont.load("fonts/helveticaneue-std.ttf", fontSize);
 	ofSetCircleResolution(100);
 	inc = 0;
 }

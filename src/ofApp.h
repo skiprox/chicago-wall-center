@@ -66,13 +66,13 @@ class ofApp : public ofBaseApp{
         ofImage buildingBottom, buildingTop;
 
         // All Lines
-        vector<DashedLine> buildingBottomDashedLines, buildingTopDashedLines;
+        vector<DashedLine> buildingTopDashedLines;
 
         // All image animations
         ImageAnimation companiesAnimation;
 
         // All image movements
-        ImageMovement buildingBottomMovement, buildingTopMovement;
+        ImageMovement buildingTopMovement;
 
         // All Text Typing animations
         // TextTyping buildingLeftText;
