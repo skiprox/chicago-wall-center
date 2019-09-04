@@ -18,7 +18,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::setupImages(){
-	background.load("images/background.png");
+	background.load("images/background.jpg");
 	companies.load("images/companies.png");
 	buildingBottom.load("images/building-bottom.png");
 	buildingTop.load("images/building-top.png");
@@ -55,7 +55,7 @@ void ofApp::setupAnimations(){
 	companiesAnimation = ImageAnimation(
 		companies,
 		glm::vec2(fixedWidth/2.0, fixedHeight - 120),
-		glm::vec2(800, 200),
+		glm::vec2(800, 212),
 		250
 	);
 	/**
