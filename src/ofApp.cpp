@@ -68,8 +68,8 @@ void ofApp::setupAnimations(){
 	);
 	peopleAnimation = ImageAnimation(
 		people,
-		glm::vec2(fixedWidth/2.0 + 220, fixedHeight/2.0 + 20),
-		glm::vec2(400, 209),
+		glm::vec2(fixedWidth/2.0 + 198, fixedHeight/2.0 + 15),
+		glm::vec2(430, 223),
 		250
 	);
 	/**
@@ -104,7 +104,7 @@ void ofApp::setupAnimations(){
 	// AERIAL RIGHT
 	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 150, 200), red, true);
 	// PEOPLE
-	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0, fixedHeight/2.0), red, true);
+	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 160, fixedHeight/2.0 + 50), red, true);
 }
 
 //--------------------------------------------------------------
