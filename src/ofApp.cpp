@@ -83,6 +83,65 @@ void ofApp::setupAnimations(){
 		250
 	);
 	/**
+	 * ALL THE TEXT TYPING GO HERE
+	 */
+	buildingBottomText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(1500, 800),
+		ofColor(255),
+		7,
+		150
+	);
+	buildingTopText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(1460, 260),
+		ofColor(255),
+		7,
+		150
+	);
+	companiesCenterText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(900, 790),
+		ofColor(255),
+		7,
+		150
+	);
+	companiesLeftText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(330, 920),
+		ofColor(255),
+		7,
+		150
+	);
+	peopleText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(790, 550),
+		ofColor(255),
+		7,
+		150
+	);
+	aerialLeftText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(275, 200),
+		ofColor(255),
+		7,
+		150
+	);
+	aerialCenterText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(450, 435),
+		ofColor(255),
+		7,
+		150
+	);
+	aerialRightText = TextTyping(
+		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		glm::vec2(980, 200),
+		ofColor(255),
+		7,
+		150
+	);
+	/**
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// MILLENIUM FALCON RIGHT
@@ -202,10 +261,10 @@ void ofApp::drawAnimations(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-	// Keys 1 through 9 are 49 through 57
+	// Keys 0 through 9 are 48 through 57
 	// so use this to determine the index of the animation we should run
-	if (key >= 49 && key <= 57) {
-		int keyIndex = key - 49;
+	if (key >= 48 && key <= 57) {
+		int keyIndex = key - 48;
 		// Simulate increasing the threshold number,
 		touchThreshold[keyIndex] = 50;
 		// and once that reaches 50 we can run the animation
@@ -305,12 +364,16 @@ void ofApp::runAnimation(int animationNum){
 		// ANIMATE TEXT
 		case 2:
 			ofPushStyle();
+			buildingBottomText.update(animationCounter[2]);
+			buildingBottomText.draw();
 			ofPopStyle();
 			break;
 		// PRESS TOP BUILDING
 		// ANIMATE TEXT
 		case 3:
 			ofPushStyle();
+			buildingTopText.update(animationCounter[3]);
+			buildingTopText.draw();
 			ofPopStyle();
 			break;
 		// PRESS COMPANIES CENTER
@@ -319,15 +382,19 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			peopleAnimation.update(animationCounter[4]);
 			peopleAnimation.draw();
+			companiesCenterText.update(animationCounter[4]);
+			companiesCenterText.draw();
 			handMarkers[9].draw();
 			ofPopStyle();
 			break;
-		// PRESS COMPANIES RIGHT
+		// PRESS COMPANIES LEFT
 		// ANIMATE AERIAL
 		case 5:
 			ofPushStyle();
 			aerialAnimation.update(animationCounter[5]);
 			aerialAnimation.draw();
+			companiesLeftText.update(animationCounter[5]);
+			companiesLeftText.draw();
 			handMarkers[6].draw();
 			handMarkers[7].draw();
 			handMarkers[8].draw();
@@ -337,24 +404,32 @@ void ofApp::runAnimation(int animationNum){
 		// ANIMATE TEXT
 		case 6:
 			ofPushStyle();
+			aerialLeftText.update(animationCounter[6]);
+			aerialLeftText.draw();
 			ofPopStyle();
 			break;
 		// PRESS AERIAL CENTER
 		// ANIMATE TEXT
 		case 7:
 			ofPushStyle();
+			aerialCenterText.update(animationCounter[7]);
+			aerialCenterText.draw();
 			ofPopStyle();
 			break;
 		// PRESS AERIAL RIGHT
 		// ANIMATE TEXT
 		case 8:
 			ofPushStyle();
+			aerialRightText.update(animationCounter[8]);
+			aerialRightText.draw();
 			ofPopStyle();
 			break;
 		// PRESS PEOPLE
 		// ANIMATE TEXT
 		case 9:
 			ofPushStyle();
+			peopleText.update(animationCounter[9]);
+			peopleText.draw();
 			ofPopStyle();
 			break;
 		default:

@@ -73,6 +73,13 @@ class ofApp : public ofBaseApp{
         ImageMovement buildingTopMovement;
 
         // All Text Typing animations
-        // TextTyping buildingLeftText;
+        TextTyping buildingBottomText,
+            buildingTopText,
+            companiesCenterText,
+            companiesLeftText,
+            peopleText,
+            aerialLeftText,
+            aerialCenterText,
+            aerialRightText;
 		
 };
