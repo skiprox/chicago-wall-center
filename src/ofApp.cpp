@@ -22,6 +22,8 @@ void ofApp::setupImages(){
 	companies.load("images/companies.png");
 	buildingBottom.load("images/building-bottom.png");
 	buildingTop.load("images/building-top.png");
+	aerial.load("images/aerial.jpg");
+	people.load("images/people.png");
 }
 
 //--------------------------------------------------------------
@@ -58,6 +60,18 @@ void ofApp::setupAnimations(){
 		glm::vec2(800, 212),
 		250
 	);
+	aerialAnimation = ImageAnimation(
+		aerial,
+		glm::vec2(fixedWidth/3.0, 200),
+		glm::vec2(400, 239),
+		250
+	);
+	peopleAnimation = ImageAnimation(
+		people,
+		glm::vec2(fixedWidth/2.0 + 220, fixedHeight/2.0 + 20),
+		glm::vec2(400, 209),
+		250
+	);
 	/**
 	 * ALL THE IMAGE MOVEMENTS GO HERE
 	 */
@@ -71,18 +85,26 @@ void ofApp::setupAnimations(){
 	/**
 	 * ALL THE HAND MARKERS GO HERE
 	 */
-	// MILLENIUM FALCON RIGHT (1)
+	// MILLENIUM FALCON RIGHT
 	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 100, fixedHeight - 100), red, true);
-	// MILLENIUM FALCON LEFT (2)
+	// MILLENIUM FALCON LEFT
 	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 40), red, true);
-	// CENTER OF THE COMPANIES
-	handMarkers[2] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
-	// LEFT OF THE COMPANIES
-	handMarkers[3] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, fixedHeight - 160), red, false);
 	// BOTTOM BUILDING
-	handMarkers[4] = HandMarker(glm::vec2(1752, 652), red, true);
+	handMarkers[2] = HandMarker(glm::vec2(1752, 652), red, true);
 	// TOP BUILDING
-	handMarkers[5] = HandMarker(glm::vec2(1752, 230), red, true);
+	handMarkers[3] = HandMarker(glm::vec2(1752, 230), red, true);
+	// CENTER OF THE COMPANIES
+	handMarkers[4] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
+	// LEFT OF THE COMPANIES
+	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, fixedHeight - 160), red, false);
+	// AERIAL LEFT
+	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, 200), red, true);
+	// AERIAL CENTER
+	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0, 200), red, true);
+	// AERIAL RIGHT
+	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 150, 200), red, true);
+	// PEOPLE
+	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0, fixedHeight/2.0), red, true);
 }
 
 //--------------------------------------------------------------
@@ -155,9 +177,6 @@ void ofApp::drawBackground(){
 void ofApp::drawHandMarkers(){
 	handMarkers[0].draw();
 	handMarkers[1].draw();
-	// for (int i = 0; i < handMarkers.size(); i++) {
-	// 	handMarkers[i].draw();
-	// }
 }
 
 //--------------------------------------------------------------
@@ -172,7 +191,7 @@ void ofApp::drawAnimations(){
 			// If we haven't hit the threshold for how long to
 			// run the animation, fucking run it
 			if (animationCounter[i] <= animationCounterMax[i]) {
-				runAnimation(i + 1);
+				runAnimation(i);
 			} else { // Otherwise stop running the animation
 				shouldRunAnimation[i] = false;
 				animationCounter[i] = 0;
@@ -206,25 +225,51 @@ void ofApp::keyPressed(int key){
 //--------------------------------------------------------------
 void ofApp::checkShouldRunAnimations(int index){
 	// If it's the first button, we should run the animation
-	if (index == 0) { // Right Millenium Falcon, building animations
-		shouldRunAnimation[index] = true;
-	} else if (index == 1) { // Left Millenium Falcon, companies animations
-		shouldRunAnimation[index] = true;
-	} else if (index == 2) { // Center of the companies, crowd of people animation
-		if (shouldRunAnimation[1]) {
-			shouldRunAnimation[index] = true;
-		}
-	} else if (index == 3) { // Left of the companies, three buttons on colored diagram animation
-		if (shouldRunAnimation[1]) {
-			shouldRunAnimation[index] = true;
-		}
-	} else if (index == 4) { // Bottom building, text animation
+	if (index == 0) { // Right Millenium Falcon
+		// building animations
+		shouldRunAnimation[0] = true;
+	} else if (index == 1) { // Left Millenium Falcon
+		// companies animations
+		shouldRunAnimation[1] = true;
+	} else if (index == 2) { // Bottom building
 		if (shouldRunAnimation[0]) {
-			shouldRunAnimation[index] = true;
+			// Text animation
+			shouldRunAnimation[2] = true;
 		}
-	} else if (index == 5) { // Top building, text animation
+	} else if (index == 3) { // Top building
 		if (shouldRunAnimation[0]) {
-			shouldRunAnimation[index] = true;
+			// Text animation
+			shouldRunAnimation[3] = true;
+		}
+	} else if (index == 4) { // Companies center
+		if (shouldRunAnimation[1]) {
+			// People animation
+			shouldRunAnimation[4] = true;
+		}
+	} else if (index == 5) { // Companies left
+		if (shouldRunAnimation[1]) {
+			// Aerial animation
+			shouldRunAnimation[5] = true;
+		}
+	} else if (index == 6) { // Aerial left
+		if (shouldRunAnimation[5]) {
+			// Aerial text left
+			shouldRunAnimation[6] = true;
+		}
+	} else if (index == 7) { // Aerial center
+		if (shouldRunAnimation[5]) {
+			// Aerial text center
+			shouldRunAnimation[7] = true;
+		}
+	} else if (index == 8) { // Aerial right
+		if (shouldRunAnimation[5]) {
+			// Aerial text right
+			shouldRunAnimation[8] = true;
+		}
+	} else if (index == 9) { // People
+		if (shouldRunAnimation[4]) {
+			// People text
+			shouldRunAnimation[9] = true;
 		}
 	}
 }
@@ -232,7 +277,9 @@ void ofApp::checkShouldRunAnimations(int index){
 //--------------------------------------------------------------
 void ofApp::runAnimation(int animationNum){
 	switch(animationNum) {
-		case 1:
+		// PRESS RIGHT MILLENIUM FALCON
+		// ANIMATE BUILDINGS
+		case 0:
 			ofPushStyle();
 			buildingTopMovement.update(animationCounter[0]);
 			buildingTopMovement.draw();
@@ -240,33 +287,75 @@ void ofApp::runAnimation(int animationNum){
 				buildingTopDashedLines[i].update(animationCounter[0]);
 				buildingTopDashedLines[i].draw();
 			}
-			handMarkers[4].draw();
-			handMarkers[5].draw();
-			ofPopStyle();
-			break;
-		case 2:
-			ofPushStyle();
-			companiesAnimation.update(animationCounter[1]);
-			companiesAnimation.draw();
 			handMarkers[2].draw();
 			handMarkers[3].draw();
 			ofPopStyle();
 			break;
+		// PRESS LEFT MILLENIUM FALCON
+		// ANIMATE COMPANIES
+		case 1:
+			ofPushStyle();
+			companiesAnimation.update(animationCounter[1]);
+			companiesAnimation.draw();
+			handMarkers[4].draw();
+			handMarkers[5].draw();
+			ofPopStyle();
+			break;
+		// PRESS BOTTOM BUILDING
+		// ANIMATE TEXT
+		case 2:
+			ofPushStyle();
+			ofPopStyle();
+			break;
+		// PRESS TOP BUILDING
+		// ANIMATE TEXT
 		case 3:
 			ofPushStyle();
 			ofPopStyle();
 			break;
+		// PRESS COMPANIES CENTER
+		// ANIMATE PEOPLE
 		case 4:
+			ofPushStyle();
+			peopleAnimation.update(animationCounter[4]);
+			peopleAnimation.draw();
+			handMarkers[9].draw();
+			ofPopStyle();
 			break;
+		// PRESS COMPANIES RIGHT
+		// ANIMATE AERIAL
 		case 5:
+			ofPushStyle();
+			aerialAnimation.update(animationCounter[5]);
+			aerialAnimation.draw();
+			handMarkers[6].draw();
+			handMarkers[7].draw();
+			handMarkers[8].draw();
+			ofPopStyle();
 			break;
+		// PRESS AERIAL LEFT
+		// ANIMATE TEXT
 		case 6:
+			ofPushStyle();
+			ofPopStyle();
 			break;
+		// PRESS AERIAL CENTER
+		// ANIMATE TEXT
 		case 7:
+			ofPushStyle();
+			ofPopStyle();
 			break;
+		// PRESS AERIAL RIGHT
+		// ANIMATE TEXT
 		case 8:
+			ofPushStyle();
+			ofPopStyle();
 			break;
+		// PRESS PEOPLE
+		// ANIMATE TEXT
 		case 9:
+			ofPushStyle();
+			ofPopStyle();
 			break;
 		default:
 			cout << "WHAT FUCKING KEY IS THIS?? " << animationNum << endl;

@@ -46,30 +46,28 @@ class ofApp : public ofBaseApp{
 
     	vector<int> serialInput;
 
-    	std::array<int, 9> touchThreshold = {{0, 0, 0, 0, 0, 0, 0, 0, 0}};
+    	std::array<int, 10> touchThreshold = {{0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
-    	std::array<bool, 9> shouldRunAnimation = {{false, false, false, false, false, false, false, false, false}};
-    	std::array<int, 9> animationCounter = {{0, 0, 0, 0, 0, 0, 0, 0, 0}};
-    	std::array<int, 9> animationCounterMax = {{5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000}};
-
-    	// All animations declared here
-
-        // All arbitrary animation variables which we'll need to create animations
-        vector<std::array<glm::vec2, 4>> _pts;
+    	std::array<bool, 10> shouldRunAnimation = {{false, false, false, false, false, false, false, false, false}};
+    	std::array<int, 10> animationCounter = {{0, 0, 0, 0, 0, 0, 0, 0, 0}};
+    	std::array<int, 10> animationCounterMax = {{5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000}};
 
     	// All the hand markers declared here
-    	std::array<HandMarker, 9> handMarkers;
+    	std::array<HandMarker, 10> handMarkers;
 
         // All images declared here
-        ofImage background;
-        ofImage companies;
-        ofImage buildingBottom, buildingTop;
+        ofImage background,
+            companies,
+            buildingBottom,
+            buildingTop,
+            aerial,
+            people;
 
         // All Lines
         vector<DashedLine> buildingTopDashedLines;
 
         // All image animations
-        ImageAnimation companiesAnimation;
+        ImageAnimation companiesAnimation, aerialAnimation, peopleAnimation;
 
         // All image movements
         ImageMovement buildingTopMovement;
