@@ -240,18 +240,28 @@ void ofApp::drawHandMarkers(){
 
 //--------------------------------------------------------------
 void ofApp::drawAnimations(){
+	bool runningAnyAnimations = false;
 	// Run through the `shouldRunAnimation` array, and run any of the animations that we should
 	for (int i = 0; i < shouldRunAnimation.size(); i++) {
 		if (shouldRunAnimation[i]) {
+			// We're running an animation! so this is true
+			runningAnyAnimations = true;
 			// Increase the animation counter,
 			// which is what we're using to run the animation for
 			// a set amount of time
 			animationCounter[i]++;
-			// If we haven't hit the threshold for how long to
-			// run the animation, fucking run it
-			if (animationCounter[i] <= animationCounterMax[i]) {
-				runAnimation(i);
-			} else { // Otherwise stop running the animation
+			// Run the fucking animation
+			runAnimation(i);
+		}
+	}
+	// If we are running any animations, increment
+	// the universal animation counter
+	// and check if we should stop running all animations
+	if (runningAnyAnimations) {
+		universalAnimationCounter++;
+		if (universalAnimationCounter >= universalAnimationCounterMax) {
+			universalAnimationCounter = 0;
+			for (int i = 0; i < shouldRunAnimation.size(); i++) {
 				shouldRunAnimation[i] = false;
 				animationCounter[i] = 0;
 			}
@@ -283,53 +293,58 @@ void ofApp::keyPressed(int key){
 
 //--------------------------------------------------------------
 void ofApp::checkShouldRunAnimations(int index){
+	bool shouldRunOne = false;
 	// If it's the first button, we should run the animation
 	if (index == 0) { // Right Millenium Falcon
 		// building animations
-		shouldRunAnimation[0] = true;
+		shouldRunOne = true;
 	} else if (index == 1) { // Left Millenium Falcon
 		// companies animations
-		shouldRunAnimation[1] = true;
+		shouldRunOne = true;
 	} else if (index == 2) { // Bottom building
 		if (shouldRunAnimation[0]) {
 			// Text animation
-			shouldRunAnimation[2] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 3) { // Top building
 		if (shouldRunAnimation[0]) {
 			// Text animation
-			shouldRunAnimation[3] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 4) { // Companies center
 		if (shouldRunAnimation[1]) {
 			// People animation
-			shouldRunAnimation[4] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 5) { // Companies left
 		if (shouldRunAnimation[1]) {
 			// Aerial animation
-			shouldRunAnimation[5] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 6) { // Aerial left
 		if (shouldRunAnimation[5]) {
 			// Aerial text left
-			shouldRunAnimation[6] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 7) { // Aerial center
 		if (shouldRunAnimation[5]) {
 			// Aerial text center
-			shouldRunAnimation[7] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 8) { // Aerial right
 		if (shouldRunAnimation[5]) {
 			// Aerial text right
-			shouldRunAnimation[8] = true;
+			shouldRunOne = true;
 		}
 	} else if (index == 9) { // People
 		if (shouldRunAnimation[4]) {
 			// People text
-			shouldRunAnimation[9] = true;
+			shouldRunOne = true;
 		}
+	}
+	if (shouldRunOne) {
+		shouldRunAnimation[index] = true;
+		universalAnimationCounter = 0;
 	}
 }
 

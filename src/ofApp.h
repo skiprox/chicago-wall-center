@@ -50,7 +50,8 @@ class ofApp : public ofBaseApp{
 
     	std::array<bool, 10> shouldRunAnimation = {{false, false, false, false, false, false, false, false, false, false}};
     	std::array<int, 10> animationCounter = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
-    	std::array<int, 10> animationCounterMax = {{5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000}};
+    	int universalAnimationCounter = 0;
+        int universalAnimationCounterMax = 5000;
 
     	// All the hand markers declared here
     	std::array<HandMarker, 10> handMarkers;
