@@ -44,7 +44,7 @@ void TextTyping::draw() {
 	ofSetColor(color);
 	ofRectangle textRect = myfont.getStringBoundingBox(text, pos.x,pos.y);
 	ofPushStyle();
-	float easedAlpha = ofMap((float)inc/(float)incMax, 0.0, 1.0, 0.0, 180.0, true);
+	float easedAlpha = ofMap((float)inc/(float)incMax, 0.0, 1.0, 0.0, 220.0, true);
 	ofSetColor(0, 0, 0, easedAlpha);
 	ofFill();
 	ofRectangle myRect;
@@ -52,7 +52,7 @@ void TextTyping::draw() {
 	myRect.y = pos.y - textRect.height/2.0 - (10.0 + fontSize);
 	myRect.width = textRect.width + 20.0;
 	myRect.height = textRect.height + 20.0;
-	ofDrawRectRounded(myRect, 4.0);
+	ofDrawRectangle(myRect);
 	ofPopStyle();
 	myfont.drawString(text.substr(0, charsToDraw), pos.x - textRect.width/2.0, pos.y - textRect.height/2.0);
 	ofPopStyle();
