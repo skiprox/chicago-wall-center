@@ -240,7 +240,7 @@ void ofApp::drawBackground(){
 			ofDrawRectangle(0, fixedHeight - fixedHeight/divConst, fixedWidth, 2);
 		}
 	}
-	//background.draw(0, 0, fixedWidth, fixedHeight);
+	background.draw(0, 0, fixedWidth, fixedHeight);
 	buildingBottom.draw(1752 - 161, 652 - 130, 333, 260);
 }
 
