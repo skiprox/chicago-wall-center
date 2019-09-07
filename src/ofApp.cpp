@@ -62,7 +62,7 @@ void ofApp::setupAnimations(){
 	);
 	aerialAnimation = ImageAnimation(
 		aerial,
-		glm::vec2(fixedWidth/3.0, 200),
+		glm::vec2(fixedWidth/3.0 - 60, 170),
 		glm::vec2(400, 239),
 		250
 	);
@@ -122,21 +122,21 @@ void ofApp::setupAnimations(){
 	);
 	aerialLeftText = TextTyping(
 		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(275, 200),
+		glm::vec2(215, 170),
 		ofColor(255),
 		10,
 		150
 	);
 	aerialCenterText = TextTyping(
 		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(450, 435),
+		glm::vec2(390, 405),
 		ofColor(255),
 		10,
 		150
 	);
 	aerialRightText = TextTyping(
 		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(980, 200),
+		glm::vec2(920, 170),
 		ofColor(255),
 		10,
 		150
@@ -157,11 +157,11 @@ void ofApp::setupAnimations(){
 	// LEFT OF THE COMPANIES
 	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, fixedHeight - 160), red, false);
 	// AERIAL LEFT
-	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, 200), red, true);
+	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 170), red, true);
 	// AERIAL CENTER
-	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0, 200), red, true);
+	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 170), red, true);
 	// AERIAL RIGHT
-	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 150, 200), red, true);
+	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 90, 170), red, true);
 	// PEOPLE
 	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 160, fixedHeight/2.0 + 50), red, true);
 }
@@ -216,7 +216,7 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::drawBackground(){
-	ofBackground(255);
+	ofBackground(0);
 	ofSetColor(255);
 	// Draw up and down lines
 	for (int i = 0; i < 2; i++) {
@@ -228,7 +228,7 @@ void ofApp::drawBackground(){
 			ofDrawRectangle(0, fixedHeight - fixedHeight/divConst, fixedWidth, 2);
 		}
 	}
-	background.draw(0, 0, fixedWidth, fixedHeight);
+	//background.draw(0, 0, fixedWidth, fixedHeight);
 	buildingBottom.draw(1752 - 161, 652 - 130, 333, 260);
 }
 
