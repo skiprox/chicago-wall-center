@@ -18,7 +18,7 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::setupImages(){
-	background.load("images/background.jpg");
+	background.load("images/background.png");
 	companies.load("images/companies.png");
 	buildingBottom.load("images/building-bottom.png");
 	buildingTop.load("images/building-top.png");
