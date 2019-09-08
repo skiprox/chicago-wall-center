@@ -62,13 +62,13 @@ void ofApp::setupAnimations(){
 	);
 	aerialAnimation = ImageAnimation(
 		aerial,
-		glm::vec2(fixedWidth/3.0 - 60, 170),
+		glm::vec2(fixedWidth/3.0 - 60, 370),
 		glm::vec2(400, 239),
 		250
 	);
 	peopleAnimation = ImageAnimation(
 		people,
-		glm::vec2(fixedWidth/2.0 + 198, fixedHeight/2.0 + 15),
+		glm::vec2(fixedWidth/2.0 + 254, fixedHeight/2.0 + 55),
 		glm::vec2(430, 223),
 		250
 	);
@@ -78,8 +78,8 @@ void ofApp::setupAnimations(){
 	buildingTopMovement = ImageMovement(
 		buildingTop,
 		glm::vec2(338, 268),
-		glm::vec2(1751, 1058),
-		glm::vec2(1751, 274),
+		glm::vec2(1737, 1104),
+		glm::vec2(1737, 320),
 		250
 	);
 	/**
@@ -149,21 +149,21 @@ void ofApp::setupAnimations(){
 	// MILLENIUM FALCON LEFT
 	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 40), red, true);
 	// BOTTOM BUILDING
-	handMarkers[2] = HandMarker(glm::vec2(1752, 652), red, true);
+	handMarkers[2] = HandMarker(glm::vec2(1722, 652), red, true);
 	// TOP BUILDING
-	handMarkers[3] = HandMarker(glm::vec2(1752, 230), red, true);
+	handMarkers[3] = HandMarker(glm::vec2(1722, 290), red, true);
 	// CENTER OF THE COMPANIES
 	handMarkers[4] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
 	// LEFT OF THE COMPANIES
 	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, fixedHeight - 160), red, false);
 	// AERIAL LEFT
-	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 170), red, true);
+	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 370), red, true);
 	// AERIAL CENTER
-	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 170), red, true);
+	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 370), red, true);
 	// AERIAL RIGHT
-	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 90, 170), red, true);
+	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 90, 370), red, true);
 	// PEOPLE
-	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 160, fixedHeight/2.0 + 50), red, true);
+	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 216, fixedHeight/2.0 + 90), red, true);
 }
 
 //--------------------------------------------------------------
@@ -241,7 +241,7 @@ void ofApp::drawBackground(){
 		}
 	}
 	background.draw(0, 0, fixedWidth, fixedHeight);
-	buildingBottom.draw(1752 - 161, 652 - 130, 333, 260);
+	buildingBottom.draw(1752 - 183, 652 - 90, 333, 260);
 }
 
 //--------------------------------------------------------------
