@@ -66,6 +66,7 @@ class ofApp : public ofBaseApp{
 
         // All Lines
         vector<DashedLine> buildingTopDashedLines;
+        DashedLine aerialToBuildingLine;
 
         // All image animations
         ImageAnimation companiesAnimation, aerialAnimation, peopleAnimation;

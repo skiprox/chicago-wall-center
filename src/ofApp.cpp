@@ -33,23 +33,29 @@ void ofApp::setupAnimations(){
 	 */
 	vector<std::array<glm::vec2, 2>> pts;
 	// Upper Building Dashed Lines
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1026), glm::vec2(1615, 346)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1025), glm::vec2(1615, 400)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1072), glm::vec2(1670, 392)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1069), glm::vec2(1670, 444)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1092), glm::vec2(1725, 412)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1071), glm::vec2(1725, 446)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1000), glm::vec2(1780, 320)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1000), glm::vec2(1780, 375)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 967), glm::vec2(1835, 287)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 945), glm::vec2(1835, 320)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 902), glm::vec2(1890, 230)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 881), glm::vec2(1890, 256)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
+	pts.clear();
+	// Aerial to upper building dashed lines
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(780, 375), glm::vec2(1350, 375)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1350, 375), glm::vec2(1350, 275)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1350, 275), glm::vec2(1555, 275)}});
+	aerialToBuildingLine = DashedLine(pts, 2.0, red, 250, true);
 	pts.clear();
 	/**
 	 * ALL THE IMAGE ANIMATIONS GO HERE
@@ -78,7 +84,7 @@ void ofApp::setupAnimations(){
 	buildingTopMovement = ImageMovement(
 		buildingTop,
 		glm::vec2(338, 268),
-		glm::vec2(1737, 1104),
+		glm::vec2(1737, 945),
 		glm::vec2(1737, 320),
 		250
 	);
@@ -422,6 +428,8 @@ void ofApp::runAnimation(int animationNum){
 			aerialAnimation.draw();
 			companiesLeftText.update(animationCounter[5]);
 			companiesLeftText.draw();
+			aerialToBuildingLine.update(animationCounter[5]);
+			aerialToBuildingLine.draw();
 			handMarkers[6].draw();
 			handMarkers[7].draw();
 			handMarkers[8].draw();
