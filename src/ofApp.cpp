@@ -51,6 +51,14 @@ void ofApp::setupAnimations(){
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 881), glm::vec2(1890, 256)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
+	// The dashed line around the companies
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(fixedWidth/2.0, 840), glm::vec2(505, 840)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(505, 840), glm::vec2(505, 1060)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(505, 1060), glm::vec2(1370, 1060)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1370, 1060), glm::vec2(1370, 840)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1370, 840), glm::vec2(fixedWidth/2.0, 840)}});
+	companiesLine = DashedLine(pts, 5.0, red, 250, false);
+	pts.clear();
 	// Aerial to upper building dashed lines
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(780, 375), glm::vec2(1350, 375)}});
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1350, 375), glm::vec2(1350, 275)}});
@@ -161,7 +169,7 @@ void ofApp::setupAnimations(){
 	// CENTER OF THE COMPANIES
 	handMarkers[4] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
 	// LEFT OF THE COMPANIES
-	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 150, fixedHeight - 160), red, false);
+	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 100, fixedHeight - 160), red, false);
 	// AERIAL LEFT
 	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 370), red, true);
 	// AERIAL CENTER
@@ -387,26 +395,37 @@ void ofApp::runAnimation(int animationNum){
 		// ANIMATE COMPANIES
 		case 1:
 			ofPushStyle();
+			// companies animation
 			companiesAnimation.update(animationCounter[1]);
 			companiesAnimation.draw();
+			// companies center hand marker
 			handMarkers[4].draw();
+			// companies left hand marker
 			handMarkers[5].draw();
+			// comapanies dashed line
+			companiesLine.update(animationCounter[1]);
+			companiesLine.draw();
 			ofPopStyle();
 			break;
 		// PRESS BOTTOM BUILDING
 		// ANIMATE TEXT
 		case 2:
 			ofPushStyle();
-			buildingBottomText.update(animationCounter[2]);
-			buildingBottomText.draw();
+			if (!shouldRunAnimation[4]) {
+				buildingBottomText.update(animationCounter[2]);
+				buildingBottomText.draw();
+			}
 			ofPopStyle();
 			break;
 		// PRESS TOP BUILDING
 		// ANIMATE TEXT
 		case 3:
 			ofPushStyle();
-			buildingTopText.update(animationCounter[3]);
-			buildingTopText.draw();
+			// Only run if we aren't showing aerial animation
+			if (!shouldRunAnimation[5]) {
+				buildingTopText.update(animationCounter[3]);
+				buildingTopText.draw();
+			}
 			ofPopStyle();
 			break;
 		// PRESS COMPANIES CENTER
@@ -415,8 +434,11 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			peopleAnimation.update(animationCounter[4]);
 			peopleAnimation.draw();
-			companiesCenterText.update(animationCounter[4]);
-			companiesCenterText.draw();
+			// If we aren't running the people text animation
+			if (!shouldRunAnimation[9]) {
+				companiesCenterText.update(animationCounter[4]);
+				companiesCenterText.draw();
+			}
 			handMarkers[9].draw();
 			ofPopStyle();
 			break;
@@ -426,8 +448,10 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			aerialAnimation.update(animationCounter[5]);
 			aerialAnimation.draw();
-			companiesLeftText.update(animationCounter[5]);
-			companiesLeftText.draw();
+			if (!shouldRunAnimation[6] && !shouldRunAnimation[7] && !shouldRunAnimation[8]) {
+				companiesLeftText.update(animationCounter[5]);
+				companiesLeftText.draw();
+			}
 			aerialToBuildingLine.update(animationCounter[5]);
 			aerialToBuildingLine.draw();
 			handMarkers[6].draw();
