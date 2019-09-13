@@ -99,61 +99,75 @@ void ofApp::setupAnimations(){
 	/**
 	 * ALL THE TEXT TYPING GO HERE
 	 */
-	buildingBottomText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(1500, 800),
+	milleniumRightText = TextTyping(
+		"Generalitat de Catalunya as well as representatives of\nBarcelona's Chamber of Commerce and the public-private\nentity Fira de Barcelona announced a closed-door deal.\nThey revealed ”Fira Univers,” an institutional project to\nsupport the investment of 380 million euros for the renovation\nof the Montjuïc fairgrounds and the expansion of the\nl’Hospitalet fairgrounds to be inaugurated in 2029 for the\n100th anniversary of the 1929 International Exhibition. Even\nthough the fairgrounds stand in municipal land, the details\nof the agreement were not made public and until today are\nunknown. There was no public debate or consultation before\nthe signing of the deal. These actions have recently put to\nquestion the new priorities of the government of the City of\nBarcelona; a self-professed progressive government that\nwon elections in 2015 with the public promise to “kick-out\nmafias and lobbies.” Without any public debate, the Montjuïc\nfairgrounds and its management company Fira de Barcelona\ncontinues to be a highly profitable, opaque, and carefully\nguarded public-private organization dedicated to promote\nmega-events for the global capitalist elites.",
+		glm::vec2(1500, 900),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
+	);
+	milleniumLeftText = TextTyping(
+		"The Montjuïc fairground occupies 27 hectares of\nmunicipal land, in a very central location of Barcelona.\nIts size is equivalent to 21 blocks of the famous Cerdá\nEixample or the full surface of La Barceloneta neigh-\nborhood where more than 16,000 people live. The for-\nprofit public-private Fira de Barcelona company controls\nthe site since 1932. The current concession is due to\nexpire on December 2025. Under this concession, Fira\nde Barcelona pays 0,25 euros per year for each 140,000\nsquare meter building in the site. This is the equivalent\nof paying less than 2 euros a month for a home of 80m²\nright in the heart of the city. The concession also allows\nFira de Barcelona the for-profit use of all the public\nspaces inside the fairgrounds. They are even allowed to\nclose these public spaces for the benefit of the mega-\nevents they host. These concessions have demarcated\nthe urban fragmentation of its adjacent neighborhoods\nof Poble-sec and Font de la Guatlla. Most of the buildings\nin the fairground have no historical value and are poorly\nmaintained.",
+		glm::vec2(1500, 900),
+		ofColor(255),
+		8,
+		250
+	);
+	buildingBottomText = TextTyping(
+		"Every year, Fira de Barcelona hosts approximately 150 events, and it is\nvisited by over 2 million people from across the globe. Rather than\npromoting activities that benefit local initiatives and development, the vast\nmajority of these events encourage the business of large multinational\ncorporations, such as mobile phone companies, automobile industries,\npredatory real-estate exhibitions, agro-businesses, and mass tourism\nenterprises. Amongst its most recognized events is the International Real\nEstate Fair, where notorious vulture fund companies like Blackstone, TPG\nCapital, Lone Star, Capital Management as well as the speculative banking\nsectors of Credit Suisse, Morgan Stanley, JP Morgan and Crédit Agricole\nfill the halls of the Municipally owned buildings of its two fairgrounds, which\nhave a legal mandate to serve its citizens and promote the public good.",
+		glm::vec2(1450, 670),
+		ofColor(255),
+		8,
+		250
 	);
 	buildingTopText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(1460, 260),
+		"The grassroots coalition #LaFiraOLaVida has been envisioning a new type\nof urban development for the future of the Montjuïc fairgrounds. Against the\ngated nature of the current fairground, they imagine an open landscape,\nweaved by continuous pedestrian streets that connect the adjacent\nneighborhoods of Poble-sec and Font de la Guatlla. They envision the\nsite's main avenue as a linear public park, full of endogenous vegetation\nand spaces for public gather that flow upwards into the hill of Montjuïc and\ndownwards into Plaça d'Espanya. They envision a compact neighborhood,\ndesigned to house a density of thousands of livelihoods and mixed uses.\n#LaFiraOLaVida projects an entirely walkable community built on a surplus\nof affordable living and working spaces that will be permanently welcoming\nfor all of Barcelona.",
+		glm::vec2(1350, 350),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	companiesCenterText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
+		"Fira de Barcelona is a public-private consortium formed in 1932 by the City of Barcelona, the Generalitat de Catalunya and the Chamber of Commerce.\nThis last one is an independent public corporation that promotes and offers services to business entities. Fira de Barcelona occupies two separate\nfairgrounds on municipal land. The oldest of the two offers 140,000m² of expo surface in the center of Barcelona, right next to the hill of Montjuïc. The\nnewest was built in 2007 in the adjacent municipality of l'Hospitalet but was financed by the City of Barcelona. It offers 240,000m² of expo surface. In\n2017, the City of Barcelona gave to Fira de Barcelona in limited concession the International Convention Center of Barcelona, which provides another\n75,000m² of surface located in the waterfront. Fira de Barcelona has an annual revenue of 210 million euros, while the complete housing yearly budget of\nthe City of Barcelona is 165 million euros.",
 		glm::vec2(900, 790),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	companiesLeftText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(330, 920),
+		"On May 30, 2019, a grassroots coalition of over 60 social movements publicly announced\nits opposition to the City of Barcelona's intention to extend the concession of the\nMontjuïc fairground to Fira de Barcelona. The coalition took the name #LaFiraOLaVida (the\nfair or life). Its main objectives are: first, to denounce the lack of transparency and anti-\ndemocratic character of the closed-door deal; and second, to propose alternatives for\nconverting the fairground into an urban common. #LaFiraOLaVida presented a public\nmanifesto demanding the halt of all plans to extend the concession and the renovation\nof the fairground and that the city opens a public consultation instead. #LaFiraOLaVida\nimagines the future of the fairground as an inclusive, open, and diverse neighborhood full\nof affordable housing, retail shops, proximity facilities, walkable streets, and green public\nspaces of human scale.",
+		glm::vec2(260, 940),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	peopleText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(790, 550),
+		"Since its inception, the grassroots coalition #LaFiraOLaVida keeps growing and it already includes over 60 social movements,\n\neighborhood organizations and civic platforms. From a national and city-scale it includes big entities like Sindicat de Llogaters,\nPAH Barcelona or Associació 500x20 (housing), ATTAC Catalunya, Assemblea de Barris per un Turisme Sostenible or Marea\nPensionista (economy), Ecologistes en Acció, Plataforma per la Qualitat de l'Aire or Associació Salut i Agroecologia (ecology)\nand Procés Constituent (democracy). It also includes multiple neighborhood organizations like Sindicat de Barri del Poble-sec,\nFem Sant Antoni, Assemblea del Barri de Sants, Espai Comunitari Autogestionat de Can Batlló, Espai Feminista de Sants,\nAssociació Cultural El Lokal del Raval, Plataforma en Defensa de la Barceloneta, Oficina d'Habitatge Popular de Gràica,\nAssociació de Veïns i Veïnes de la Sagrada Família.",
+		glm::vec2(1160, 770),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	aerialLeftText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(215, 170),
+		"Despite its greenwashing propaganda, the megaevents that occur in the\nMontjuïc fairground promote the consumer fantasy that unlimited growth is\npossible in a finite and fragile planet. The Fira de Barcelona dedicates\nmany of its itinerant congresses to the automobile and motorcycle\nindustries, mass tourism, predatory real-estate development, mass\nconsumption, and corporate agro-business, all of those responsible for\nemitting high levels of pollution and the heavy dependence on destructive\nextractivism. The negative environmental footprint of the 2 million congress\ntourists that arrive each year is substantial. The business model of La Fira\nde Barcelona heavily depends on the use of airplanes, cruise ships, taxis,\nhotels, luxury properties, as well as intense energy and water consumption.\n\nIn contrast, the proposed new neighborhood would replace the fairground\nwith a socially sustainable and environmentally resilient urban model. It\nprioritizes the design and implementation of environmental justice\nprinciples, which are at the core of the Urban Front ethos. The design\nprerogative for density and compactness provides the spatial layout for a\nneighborhood built on pedestrian, bicycle, and public infrastructure. A\ndiverse local workforce composed of construction cooperatives would erect\nnew buildings that utilize renewable resources and new technologies in\nthermal efficiency and recycling. The creation of collectivized facilities,\ncommunity-controlled utilities, and spaces to pursue food sovereignty\nwould be elemental.",
+		glm::vec2(200, 415),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	aerialCenterText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(390, 405),
+		"The mega-events of Fira de Barcelona amplify the voice of\nmultinational corporations and their capitalist desires to\nderegulate, extract public wealth, financialize, exploit, pollute\nand dislocate local processes for their benefit. The companies\nthat Fira de Barcelona promotes have a substantial impact on\nthe concentration of wealth and economic opportunities in the\ncity. They are involved in the promotion of mass tourism and its\ndire socio-environmental ills; in the precarization of workers; and\nin the speculative real-estate industries that have made\nBarcelona an unaffordable city.\n\nAn essential part of # LaFiraOLaVida's proposal for the\nfairground is the inclusion of local social initiatives and solidarity\nnetworks. The project puts forward a neighborhood that is co-\nproduced by autonomous collective worker groups, small\nenterprises, non-profit cooperatives, cultural initiatives, as well\nas socially productive sites that pursue fair trade, environmental\njustice, and the common good.",
+		glm::vec2(590, 590),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	aerialRightText = TextTyping(
-		"Lorem ipsum dolor sit amet, consectetur adipisicing\nelit, sed do eiusmod tempor incididunt ut labore et\ndolore magna aliqua. Ut enim ad minim veniam, quis\nnostrud exercitation ullamco laboris nisi ut aliquip\nex ea commodo consequat. Duis aute irure dolor in\nreprehenderit in voluptate velit esse cillum dolore\neu fugiat nulla pariatur. Excepteur sint occaecat\ncupidatat non proident, sunt in culpa qui officia\ndeserunt mollit anim id est laborum. Lorem ipsum dolor\nsit amet, consectetur adipisicing elit, sed do eiusmod\ntempor incididunt ut labore et dolore magna aliqua.\nUt enim ad minim veniam, quis nostrud exercitation\nullamco laboris nisi ut aliquip ex ea commodo consequat.\nDuis aute irure dolor in reprehenderit in voluptate\nvelit esse cillum dolore eu fugiat nulla pariatur.\nExcepteur sint occaecat cupidatat non proident, sunt in\nculpa qui officia deserunt mollit anim id est laborum.",
-		glm::vec2(920, 170),
+		"The proposed new neighborhood would replace the derelict buildings in the\nMontjuïc fairground for thousands of new affordable housing units —between\n5,000 and 10,000, depending on the density— that would help to improve\nBarcelona's housing crisis significantly and to contra-rest the intensifying\ngentrification of adjacent neighborhoods as Poble-sec and Sant Antoni. Far\nfrom being a monofunctional neighborhood or a social ghetto-like so many\nperipheral dormitory cities, it would be a community-controlled central\nneighborhood that would embrace a mixture of functions and populations in a\ndense fabric built by local construction cooperatives and organizations.",
+		glm::vec2(970, 300),
 		ofColor(255),
-		10,
-		150
+		8,
+		250
 	);
 	/**
 	 * ALL THE HAND MARKERS GO HERE
@@ -378,7 +392,7 @@ void ofApp::checkShouldRunAnimations(int index){
 void ofApp::runAnimation(int animationNum){
 	switch(animationNum) {
 		// PRESS RIGHT MILLENIUM FALCON
-		// ANIMATE BUILDINGS
+		// ANIMATE BUILDINGS & MILLENIUM RIGHT TEXT
 		case 0:
 			ofPushStyle();
 			buildingTopMovement.update(animationCounter[0]);
@@ -387,12 +401,16 @@ void ofApp::runAnimation(int animationNum){
 				buildingTopDashedLines[i].update(animationCounter[0]);
 				buildingTopDashedLines[i].draw();
 			}
+			if (!shouldRunAnimation[1]) {
+				milleniumRightText.update(animationCounter[0]);
+				milleniumRightText.draw();
+			}
 			handMarkers[2].draw();
 			handMarkers[3].draw();
 			ofPopStyle();
 			break;
 		// PRESS LEFT MILLENIUM FALCON
-		// ANIMATE COMPANIES
+		// ANIMATE COMPANIES AND MILLENIUM LEFT TEXT
 		case 1:
 			ofPushStyle();
 			// companies animation
@@ -405,6 +423,11 @@ void ofApp::runAnimation(int animationNum){
 			// comapanies dashed line
 			companiesLine.update(animationCounter[1]);
 			companiesLine.draw();
+			// millenium left text
+			if (!shouldRunAnimation[4]) {
+				milleniumLeftText.update(animationCounter[1]);
+				milleniumLeftText.draw();
+			}
 			ofPopStyle();
 			break;
 		// PRESS BOTTOM BUILDING

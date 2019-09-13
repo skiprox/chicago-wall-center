@@ -76,7 +76,9 @@ class ofApp : public ofBaseApp{
         ImageMovement buildingTopMovement;
 
         // All Text Typing animations
-        TextTyping buildingBottomText,
+        TextTyping milleniumRightText,
+            milleniumLeftText,
+            buildingBottomText,
             buildingTopText,
             companiesCenterText,
             companiesLeftText,
