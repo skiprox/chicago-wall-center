@@ -211,10 +211,10 @@ void ofApp::update(){
 void ofApp::updateSerials(){
 	// Loop through the serial inputs
 	for (int i = 0; i < serialInput.size(); i++) {
-		// Check if it's our button first:
+		// Check if it's our reset button first:
 		if (i == serialInput.size() - 1) {
 			// Reset stuff if we have our button press
-			if (serialInput[i] == 0) {
+			if (serialInput[i] == 1) {
 				for (int i = 0; i < shouldRunAnimation.size(); i++) {
 					shouldRunAnimation[i] = false;
 					animationCounter[i] = 0;
@@ -226,7 +226,7 @@ void ofApp::updateSerials(){
 				// Increase the threshold number,
 				touchThreshold[i]++;
 				// and once that reaches 10 we can run the animation
-				if (touchThreshold[i] >= 50) {
+				if (touchThreshold[i] >= 10) {
 					// Reset the threshold
 					touchThreshold[i] = 0;
 					checkShouldRunAnimations(i);
