@@ -61,7 +61,7 @@ void ofApp::setupAnimations(){
 	companiesLine = DashedLine(pts, 5.0, red, 250, false);
 	pts.clear();
 	// Aerial to upper building dashed lines
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(780, 375), glm::vec2(1350, 375)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(890, 375), glm::vec2(1350, 375)}});
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1350, 375), glm::vec2(1350, 275)}});
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1350, 275), glm::vec2(1555, 275)}});
 	aerialToBuildingLine = DashedLine(pts, 2.0, red, 250, true);
@@ -70,6 +70,49 @@ void ofApp::setupAnimations(){
 	 * ALL THE PRESS POINTS
 	 */
 	// 0, millenium right
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(1345, 815), glm::vec2(1500, 885)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	pressPts.clear();
+	// 1, millenium left
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(1100, 885), glm::vec2(1336, 920)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 2, building bottom
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(1475, 480), glm::vec2(1550, 556)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 3, building top
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(1412, 465), glm::vec2(1530, 350)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 4. companies center
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(733, 715), glm::vec2(882, 805)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 5. companies right
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(205, 975), glm::vec2(420, 975)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 6, aerial left
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(90, 600), glm::vec2(235, 495)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 7, aerial center
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(-100, -100), glm::vec2(-100, -100)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
+	// 8, aerial right
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(1069, 420), glm::vec2(915, 475)}});
+	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
 	// 9, people
 	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(800, 700), glm::vec2(970, 635)}});
 	pressLines.push_back(DottedLine(pressPts, 5.0, red, 75, true));
@@ -276,6 +319,8 @@ void ofApp::drawBackground(){
 void ofApp::drawHandMarkers(){
 	if (!shouldRunAnimation[0]) {
 		handMarkers[0].draw();
+		pressLines[0].update(500);
+		pressLines[0].draw();
 	}
 }
 
@@ -410,10 +455,8 @@ void ofApp::runAnimation(int animationNum){
 			}
 			if (!shouldRunAnimation[2]) {
 				handMarkers[2].draw();
-			}
-			if (!shouldRunAnimation[3] &&
-				shouldRunAnimation[2]) {
-				handMarkers[3].draw();
+				pressLines[2].update(animationCounter[0]);
+				pressLines[2].draw();
 			}
 			ofPopStyle();
 			break;
@@ -427,6 +470,8 @@ void ofApp::runAnimation(int animationNum){
 			// companies center hand marker
 			if (!shouldRunAnimation[4]) {
 				handMarkers[4].draw();
+				pressLines[4].update(animationCounter[1]);
+				pressLines[4].draw();
 			}
 			// comapanies dashed line
 			companiesLine.update(animationCounter[1]);
@@ -445,6 +490,9 @@ void ofApp::runAnimation(int animationNum){
 			if (!shouldRunAnimation[3]) {
 				buildingBottomText.update(animationCounter[2]);
 				buildingBottomText.draw();
+				handMarkers[3].draw();
+				pressLines[3].update(animationCounter[2]);
+				pressLines[3].draw();
 			}
 			ofPopStyle();
 			break;
@@ -456,6 +504,8 @@ void ofApp::runAnimation(int animationNum){
 				buildingTopText.update(animationCounter[3]);
 				buildingTopText.draw();
 				handMarkers[1].draw();
+				pressLines[1].update(animationCounter[3]);
+				pressLines[1].draw();
 			}
 			ofPopStyle();
 			break;
@@ -469,8 +519,8 @@ void ofApp::runAnimation(int animationNum){
 			if (!shouldRunAnimation[9]) {
 				companiesCenterText.update(animationCounter[4]);
 				companiesCenterText.draw();
-				// pressLine[9].update(animationCounter[4]);
-				// pressLine[9].draw();
+				pressLines[9].update(animationCounter[4]);
+				pressLines[9].draw();
 				handMarkers[9].draw();
 			}
 			ofPopStyle();
@@ -489,12 +539,16 @@ void ofApp::runAnimation(int animationNum){
 			aerialToBuildingLine.draw();
 			if (!shouldRunAnimation[6]) {
 				handMarkers[6].draw();
+				pressLines[6].update(animationCounter[5]);
+				pressLines[6].draw();
 			}
 			if (!shouldRunAnimation[7]) {
-				handMarkers[7].draw();
+				//handMarkers[7].draw();
 			}
 			if (!shouldRunAnimation[8]) {
 				handMarkers[8].draw();
+				pressLines[8].update(animationCounter[5]);
+				pressLines[8].draw();
 			}
 			ofPopStyle();
 			break;
@@ -531,6 +585,8 @@ void ofApp::runAnimation(int animationNum){
 				peopleText.update(animationCounter[9]);
 				peopleText.draw();
 				handMarkers[5].draw();
+				pressLines[5].update(animationCounter[9]);
+				pressLines[5].draw();
 			}
 			ofPopStyle();
 			break;
