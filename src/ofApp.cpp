@@ -34,22 +34,22 @@ void ofApp::setupAnimations(){
 	 */
 	vector<std::array<glm::vec2, 2>> pts;
 	// Upper Building Dashed Lines
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1025), glm::vec2(1615, 400)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1615, 1025), glm::vec2(1615, 430)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1069), glm::vec2(1670, 444)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1670, 1069), glm::vec2(1670, 474)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1071), glm::vec2(1725, 446)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1725, 1071), glm::vec2(1725, 476)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1000), glm::vec2(1780, 375)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1780, 1000), glm::vec2(1780, 405)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 945), glm::vec2(1835, 320)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1835, 945), glm::vec2(1835, 350)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
-	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 881), glm::vec2(1890, 256)}});
+	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1890, 881), glm::vec2(1890, 286)}});
 	buildingTopDashedLines.push_back(DashedLine(pts, 2.0, red, 250, false));
 	pts.clear();
 	// The dashed line around the companies
@@ -87,7 +87,7 @@ void ofApp::setupAnimations(){
 	);
 	peopleAnimation = ImageAnimation(
 		people,
-		glm::vec2(fixedWidth/2.0 + 254, fixedHeight/2.0 + 55),
+		glm::vec2(fixedWidth/2.0 + 229, fixedHeight/2.0 + 65),
 		glm::vec2(430, 223),
 		250
 	);
@@ -97,8 +97,8 @@ void ofApp::setupAnimations(){
 	buildingTopMovement = ImageMovement(
 		buildingTop,
 		glm::vec2(338, 268),
-		glm::vec2(1737, 945),
-		glm::vec2(1737, 320),
+		glm::vec2(1745, 975),
+		glm::vec2(1745, 350),
 		250
 	);
 	/**
@@ -263,7 +263,7 @@ void ofApp::drawBackground(){
 	ofPushStyle();
 	ofBackground(0);
 	background.draw(0, 0, fixedWidth, fixedHeight);
-	buildingBottom.draw(1570, 528, 333, 260);
+	buildingBottom.draw(1579, 528, 333, 260);
 	ofPopStyle();
 }
 
@@ -345,7 +345,7 @@ void ofApp::checkShouldRunAnimations(int index){
 			shouldRunOne = true;
 		}
 	} else if (index == 3) { // Top building
-		if (shouldRunAnimation[0]) {
+		if (shouldRunAnimation[2]) {
 			// Text animation
 			shouldRunOne = true;
 		}
