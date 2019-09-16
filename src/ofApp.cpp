@@ -87,7 +87,7 @@ void ofApp::setupAnimations(){
 	);
 	peopleAnimation = ImageAnimation(
 		people,
-		glm::vec2(fixedWidth/2.0 + 229, fixedHeight/2.0 + 65),
+		glm::vec2(fixedWidth/2.0 + 244, fixedHeight/2.0 + 80),
 		glm::vec2(430, 223),
 		250
 	);
