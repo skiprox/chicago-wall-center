@@ -174,9 +174,9 @@ void ofApp::setupAnimations(){
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// MILLENIUM FALCON RIGHT
-	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 100, fixedHeight - 100), white, true);
+	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 100), red, true);
 	// MILLENIUM FALCON LEFT
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 40), white, true);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 40), red, true);
 	// BOTTOM BUILDING
 	handMarkers[2] = HandMarker(glm::vec2(1722, 652), red, true);
 	// TOP BUILDING
