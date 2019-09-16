@@ -161,7 +161,7 @@ void ofApp::setupAnimations(){
 	);
 	milleniumRightText = TextTyping(
 		"THE ANNOUNCEMENT OF THE “FIRA UNIV-\nERS” PROJECT\n\nGeneralitat de Catalunya as well as representa-\ntives of Barcelona's Chamber of Commerce and\nthe public-private entity Fira de Barcelona\nannounced a closed-door deal. They revealed\n“Fira Univers,” an institutional project to support\nthe investment of 380 million euros for the renova-\ntion of the Montjuïc fairgrounds and the expansion\nof the l'Hospitalet fairgrounds to be inaugurated in\n2029 for the 100th anniversary of the 1929 Interna-\ntional Exhibition. Even though the fairgrounds\nstand in municipal land, the details of the agree-\nment were not made public and until today are\nunknown. There was no public debate or consulta-\ntion before the signing of the deal. These actions\nhave recently put to question the new priorities of\nthe government of the City of Barcelona; a\nself-professed progressive government that won\nelections in 2015 with the public promise to\n“kick-out mafias and lobbies.” Without any public\ndebate, the Montjuïc fairgrounds and its manage-\nment company Fira de Barcelona continues to be\na highly profitable, opaque, and carefully guarded\npublic-private organization dedicated to promote\nmega-events for the global capitalist elites.",
-		glm::vec2(1360, 340),
+		glm::vec2(1360, 300),
 		ofColor(255),
 		10,
 		250
