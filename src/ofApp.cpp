@@ -226,8 +226,8 @@ void ofApp::updateSerials(){
 			if (serialInput[i] == 1) {
 				// Increase the threshold number,
 				touchThreshold[i]++;
-				// and once that reaches 10 we can run the animation
-				if (touchThreshold[i] >= 10) {
+				// and once that reaches 2 we can run the animation
+				if (touchThreshold[i] >= 2) {
 					// Reset the threshold
 					touchThreshold[i] = 0;
 					checkShouldRunAnimations(i);
@@ -240,7 +240,6 @@ void ofApp::updateSerials(){
 //--------------------------------------------------------------
 void ofApp::onNewMessage(string & message)
 {
-	cout << "THE MESSAGE " << message << endl;
 	vector<string> input = ofSplitString(message, ",");
 	serialInput.clear();
 	for (int i = 0; i < input.size() - 1; i++) {
