@@ -569,14 +569,16 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			aerialLeftText.update(animationCounter[6]);
 			aerialLeftText.draw();
+			aerialCenterText.update(animationCounter[7]);
+			aerialCenterText.draw();
 			ofPopStyle();
 			break;
 		// PRESS AERIAL CENTER
 		// ANIMATE TEXT
 		case 7:
 			ofPushStyle();
-			aerialCenterText.update(animationCounter[7]);
-			aerialCenterText.draw();
+			// aerialCenterText.update(animationCounter[7]);
+			// aerialCenterText.draw();
 			ofPopStyle();
 			break;
 		// PRESS AERIAL RIGHT
