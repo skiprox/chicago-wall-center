@@ -31,6 +31,7 @@ class ofApp : public ofBaseApp{
 		ofxSimpleSerial	mySerial;
 		int baud = 57600;
         ofColor red = ofColor(220, 20, 30);
+        ofColor white = ofColor(255, 255, 255);
     	int serial1 = 0;
     	int serial2 = 0;
 

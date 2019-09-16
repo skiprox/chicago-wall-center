@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofHideCursor();
 	ofBackground(0);
 	ofSetCircleResolution(100);
 	width = ofGetWidth();
@@ -142,7 +143,7 @@ void ofApp::setupAnimations(){
 		250
 	);
 	peopleText = TextTyping(
-		"Since its inception, the grassroots coalition #LaFiraOLaVida keeps growing and it already includes over 60 social movements,\n\neighborhood organizations and civic platforms. From a national and city-scale it includes big entities like Sindicat de Llogaters,\nPAH Barcelona or Associació 500x20 (housing), ATTAC Catalunya, Assemblea de Barris per un Turisme Sostenible or Marea\nPensionista (economy), Ecologistes en Acció, Plataforma per la Qualitat de l'Aire or Associació Salut i Agroecologia (ecology)\nand Procés Constituent (democracy). It also includes multiple neighborhood organizations like Sindicat de Barri del Poble-sec,\nFem Sant Antoni, Assemblea del Barri de Sants, Espai Comunitari Autogestionat de Can Batlló, Espai Feminista de Sants,\nAssociació Cultural El Lokal del Raval, Plataforma en Defensa de la Barceloneta, Oficina d'Habitatge Popular de Gràica,\nAssociació de Veïns i Veïnes de la Sagrada Família.",
+		"Since its inception, the grassroots coalition #LaFiraOLaVida keeps growing and it already includes over 60 social movements,\nneighborhood organizations and civic platforms. From a national and city-scale it includes big entities like Sindicat de Llogaters,\nPAH Barcelona or Associació 500x20 (housing), ATTAC Catalunya, Assemblea de Barris per un Turisme Sostenible or Marea\nPensionista (economy), Ecologistes en Acció, Plataforma per la Qualitat de l'Aire or Associació Salut i Agroecologia (ecology)\nand Procés Constituent (democracy). It also includes multiple neighborhood organizations like Sindicat de Barri del Poble-sec,\nFem Sant Antoni, Assemblea del Barri de Sants, Espai Comunitari Autogestionat de Can Batlló, Espai Feminista de Sants,\nAssociació Cultural El Lokal del Raval, Plataforma en Defensa de la Barceloneta, Oficina d'Habitatge Popular de Gràica,\nAssociació de Veïns i Veïnes de la Sagrada Família.",
 		glm::vec2(1160, 770),
 		ofColor(255),
 		8,
@@ -173,13 +174,13 @@ void ofApp::setupAnimations(){
 	 * ALL THE HAND MARKERS GO HERE
 	 */
 	// MILLENIUM FALCON RIGHT
-	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 100, fixedHeight - 100), red, true);
+	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 100, fixedHeight - 100), white, true);
 	// MILLENIUM FALCON LEFT
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 40), red, true);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 40), white, true);
 	// BOTTOM BUILDING
 	handMarkers[2] = HandMarker(glm::vec2(1722, 652), red, true);
 	// TOP BUILDING
-	handMarkers[3] = HandMarker(glm::vec2(1722, 290), red, true);
+	handMarkers[3] = HandMarker(glm::vec2(1722, 290), white, true);
 	// CENTER OF THE COMPANIES
 	handMarkers[4] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
 	// LEFT OF THE COMPANIES
@@ -265,8 +266,9 @@ void ofApp::drawBackground(){
 
 //--------------------------------------------------------------
 void ofApp::drawHandMarkers(){
-	handMarkers[0].draw();
-	handMarkers[1].draw();
+	if (!shouldRunAnimation[0]) {
+		handMarkers[0].draw();
+	}
 }
 
 //--------------------------------------------------------------
@@ -330,8 +332,10 @@ void ofApp::checkShouldRunAnimations(int index){
 		// building animations
 		shouldRunOne = true;
 	} else if (index == 1) { // Left Millenium Falcon
-		// companies animations
-		shouldRunOne = true;
+		if (shouldRunAnimation[3]) {
+			// companies animations
+			shouldRunOne = true;
+		}
 	} else if (index == 2) { // Bottom building
 		if (shouldRunAnimation[0]) {
 			// Text animation
@@ -392,12 +396,17 @@ void ofApp::runAnimation(int animationNum){
 				buildingTopDashedLines[i].update(animationCounter[0]);
 				buildingTopDashedLines[i].draw();
 			}
-			if (!shouldRunAnimation[1]) {
+			if (!shouldRunAnimation[2]) {
 				milleniumRightText.update(animationCounter[0]);
 				milleniumRightText.draw();
 			}
-			handMarkers[2].draw();
-			handMarkers[3].draw();
+			if (!shouldRunAnimation[2]) {
+				handMarkers[2].draw();
+			}
+			if (!shouldRunAnimation[3] &&
+				shouldRunAnimation[2]) {
+				handMarkers[3].draw();
+			}
 			ofPopStyle();
 			break;
 		// PRESS LEFT MILLENIUM FALCON
@@ -408,9 +417,9 @@ void ofApp::runAnimation(int animationNum){
 			companiesAnimation.update(animationCounter[1]);
 			companiesAnimation.draw();
 			// companies center hand marker
-			handMarkers[4].draw();
-			// companies left hand marker
-			handMarkers[5].draw();
+			if (!shouldRunAnimation[4]) {
+				handMarkers[4].draw();
+			}
 			// comapanies dashed line
 			companiesLine.update(animationCounter[1]);
 			companiesLine.draw();
@@ -425,7 +434,7 @@ void ofApp::runAnimation(int animationNum){
 		// ANIMATE TEXT
 		case 2:
 			ofPushStyle();
-			if (!shouldRunAnimation[4]) {
+			if (!shouldRunAnimation[3]) {
 				buildingBottomText.update(animationCounter[2]);
 				buildingBottomText.draw();
 			}
@@ -435,10 +444,10 @@ void ofApp::runAnimation(int animationNum){
 		// ANIMATE TEXT
 		case 3:
 			ofPushStyle();
-			// Only run if we aren't showing aerial animation
-			if (!shouldRunAnimation[5]) {
+			if (!shouldRunAnimation[1]) {
 				buildingTopText.update(animationCounter[3]);
 				buildingTopText.draw();
+				handMarkers[1].draw();
 			}
 			ofPopStyle();
 			break;
@@ -452,8 +461,8 @@ void ofApp::runAnimation(int animationNum){
 			if (!shouldRunAnimation[9]) {
 				companiesCenterText.update(animationCounter[4]);
 				companiesCenterText.draw();
+				handMarkers[9].draw();
 			}
-			handMarkers[9].draw();
 			ofPopStyle();
 			break;
 		// PRESS COMPANIES LEFT
@@ -468,9 +477,15 @@ void ofApp::runAnimation(int animationNum){
 			}
 			aerialToBuildingLine.update(animationCounter[5]);
 			aerialToBuildingLine.draw();
-			handMarkers[6].draw();
-			handMarkers[7].draw();
-			handMarkers[8].draw();
+			if (!shouldRunAnimation[6]) {
+				handMarkers[6].draw();
+			}
+			if (!shouldRunAnimation[7]) {
+				handMarkers[7].draw();
+			}
+			if (!shouldRunAnimation[8]) {
+				handMarkers[8].draw();
+			}
 			ofPopStyle();
 			break;
 		// PRESS AERIAL LEFT
@@ -501,8 +516,12 @@ void ofApp::runAnimation(int animationNum){
 		// ANIMATE TEXT
 		case 9:
 			ofPushStyle();
-			peopleText.update(animationCounter[9]);
-			peopleText.draw();
+			// companies left hand marker
+			if (!shouldRunAnimation[5]) {
+				peopleText.update(animationCounter[9]);
+				peopleText.draw();
+				handMarkers[5].draw();
+			}
 			ofPopStyle();
 			break;
 		default:
