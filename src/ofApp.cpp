@@ -77,7 +77,7 @@ void ofApp::setupAnimations(){
 	);
 	aerialAnimation = ImageAnimation(
 		aerial,
-		glm::vec2(fixedWidth/3.0 - 60, 410),
+		glm::vec2(fixedWidth/3.0 - 60, 450),
 		glm::vec2(600, 359),
 		250
 	);
@@ -186,11 +186,11 @@ void ofApp::setupAnimations(){
 	// LEFT OF THE COMPANIES
 	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 100, fixedHeight - 160), red, false);
 	// AERIAL LEFT
-	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 370), red, true);
+	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 410), red, true);
 	// AERIAL CENTER
-	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 370), red, true);
+	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 410), red, true);
 	// AERIAL RIGHT
-	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 90, 370), red, true);
+	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 90, 410), red, true);
 	// PEOPLE
 	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 216, fixedHeight/2.0 + 90), red, true);
 }
