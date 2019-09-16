@@ -330,6 +330,11 @@ void ofApp::drawBackground(){
 void ofApp::drawHandMarkers(){
 	if (!shouldRunAnimation[0]) {
 		handMarkers[0].draw();
+		ofPushStyle();
+		ofSetColor(red);
+		ofFill();
+		ofDrawCircle(fixedWidth - 200, fixedHeight - 115, 80);
+		ofPopStyle();
 		pressLines[0].update(500);
 		pressLines[0].draw();
 	}
