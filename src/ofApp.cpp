@@ -176,23 +176,23 @@ void ofApp::setupAnimations(){
 	// MILLENIUM FALCON RIGHT
 	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 115), red, true);
 	// MILLENIUM FALCON LEFT
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 310, fixedHeight - 100), red, true);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 350, fixedHeight - 100), red, true);
 	// BOTTOM BUILDING
 	handMarkers[2] = HandMarker(glm::vec2(fixedWidth - 180, fixedHeight/2.0 + 20), red, true);
 	// TOP BUILDING
 	handMarkers[3] = HandMarker(glm::vec2(1702, 420), white, true);
 	// CENTER OF THE COMPANIES
-	handMarkers[4] = HandMarker(glm::vec2(fixedWidth/2.0 - 50, fixedHeight - 120), red, false);
+	handMarkers[4] = HandMarker(glm::vec2(fixedWidth/2.0 - 60, fixedHeight - 110), red, false);
 	// LEFT OF THE COMPANIES
-	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 100, fixedHeight - 160), red, false);
+	handMarkers[5] = HandMarker(glm::vec2(fixedWidth/3.0 - 100, fixedHeight - 200), red, false);
 	// AERIAL LEFT
-	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 210, 410), red, true);
+	handMarkers[6] = HandMarker(glm::vec2(fixedWidth/3.0 - 270, 450), red, true);
 	// AERIAL CENTER
-	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 410), red, true);
+	handMarkers[7] = HandMarker(glm::vec2(fixedWidth/3.0 - 60, 450), red, true);
 	// AERIAL RIGHT
-	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 90, 410), red, true);
+	handMarkers[8] = HandMarker(glm::vec2(fixedWidth/3.0 + 150, 450), red, true);
 	// PEOPLE
-	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 216, fixedHeight/2.0 + 90), red, true);
+	handMarkers[9] = HandMarker(glm::vec2(fixedWidth/2.0 + 216, fixedHeight/2.0 + 30), white, true);
 }
 
 //--------------------------------------------------------------
