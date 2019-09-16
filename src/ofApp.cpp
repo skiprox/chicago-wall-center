@@ -77,8 +77,8 @@ void ofApp::setupAnimations(){
 	);
 	aerialAnimation = ImageAnimation(
 		aerial,
-		glm::vec2(fixedWidth/3.0 - 60, 370),
-		glm::vec2(400, 239),
+		glm::vec2(fixedWidth/3.0 - 60, 410),
+		glm::vec2(600, 359),
 		250
 	);
 	peopleAnimation = ImageAnimation(
@@ -176,7 +176,7 @@ void ofApp::setupAnimations(){
 	// MILLENIUM FALCON RIGHT
 	handMarkers[0] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight - 115), red, true);
 	// MILLENIUM FALCON LEFT
-	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 190, fixedHeight - 30), red, true);
+	handMarkers[1] = HandMarker(glm::vec2(fixedWidth - 210, fixedHeight - 50), red, true);
 	// BOTTOM BUILDING
 	handMarkers[2] = HandMarker(glm::vec2(fixedWidth - 200, fixedHeight/2.0), red, true);
 	// TOP BUILDING
