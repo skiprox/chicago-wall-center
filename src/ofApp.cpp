@@ -24,7 +24,7 @@ void ofApp::setupImages(){
 	buildingBottom.load("images/building-bottom.png");
 	buildingTop.load("images/building-top.png");
 	aerial.load("images/aerial.jpg");
-	people.load("images/people.png");
+	people.load("images/people-2.png");
 }
 
 //--------------------------------------------------------------
@@ -154,14 +154,14 @@ void ofApp::setupAnimations(){
 	 */
 	layerZeroText = TextTyping(
 		"Most call it “free market”, but it is based on generous regulations, subsidies, and the milking of urban commons that feed and reproduce\nit. We call it the urbanization of “global capitalism.” Cities laying out red carpets for extracting private profits from all things public, red\ncarpets that perpetuate the concentration of opportunities into the hands of a global elite, that feed from the corruption of democratic\npower, spatial segregation, digital disruption, patriarchal dominance, cultural manipulation, and environmental destruction. red carpets\nfor public-private partnerships with opaque governance, hidden in large urban infrastructures, ports, airports, tax-free and logistic\nzones, economic promotion agencies and fairgrounds for large mega-events.\n\nBarcelona remains a perfect example of a city with a robust, globally weaved red carpet network of for-profit organizations that abuse\npublic partnership. It is a world reference city, full of real estate opportunities and a myriad of tourist, cultural and event attractions; a\ncity threatened by predatory global investments that drive social injustices, displacements, gentrification, mass tourism, labor conflicts,\nand pollution. A rebel and fearless city, governed by a municipalist platform whose democratic radicalism constitutes a beacon for social\nmovements around the world. A submissive city, eaten away by a powerful and opaque mesh of public-private partnerships with a high\ncapacity to influence the management of strategic public goods.\n\nNevertheless, the grassroots movements of the rebel Barcelona do not seem to give up this urban common without fighting against the\ndecision of the municipal government and the lobbies that pressure it. More than 55 neighborhood associations, environmental groups\nand unions in defense of the right to housing and the right to the city have rallied around the new platform “La Fira o la Vida” —The\nFairground or Life— with a twofold aim. On the one hand, they oppose the privatization of the fairgrounds to move forward without the\nminimum guarantees of transparency and citizen participation. On the other, they complemented their protest with a concrete and viable\nproposal. Instead of an enclosed fairground dedicated exclusively to private mega-events, they propose an open and diverse neighbo\nhood. A neighborhood with retail shops, productive spaces, proximity facilities, and thousands of public housing units. A Mediterranean\nneighborhood, with narrow streets, human-scaled squares and green corridors. An affordable, productive, and walkable neighborhood\nthat contributes to combat the effects of gentrification, air pollution, or the climate crisis. A community that perfectly expresses the\ncommitment of the URBAN FRONT: in the face of the social and environmental abuses of neoliberal urbanism, we do need concrete\nalternatives that demonstrate that a fairer and more sustainable city is possible.",
-		glm::vec2(450, 590),
+		glm::vec2(450, 580),
 		ofColor(255),
 		10,
 		250
 	);
 	milleniumRightText = TextTyping(
 		"THE ANNOUNCEMENT OF THE “FIRA UNIV-\nERS” PROJECT\n\nGeneralitat de Catalunya as well as representa-\ntives of Barcelona's Chamber of Commerce and\nthe public-private entity Fira de Barcelona\nannounced a closed-door deal. They revealed\n“Fira Univers,” an institutional project to support\nthe investment of 380 million euros for the renova-\ntion of the Montjuïc fairgrounds and the expansion\nof the l'Hospitalet fairgrounds to be inaugurated in\n2029 for the 100th anniversary of the 1929 Interna-\ntional Exhibition. Even though the fairgrounds\nstand in municipal land, the details of the agree-\nment were not made public and until today are\nunknown. There was no public debate or consulta-\ntion before the signing of the deal. These actions\nhave recently put to question the new priorities of\nthe government of the City of Barcelona; a\nself-professed progressive government that won\nelections in 2015 with the public promise to\n“kick-out mafias and lobbies.” Without any public\ndebate, the Montjuïc fairgrounds and its manage-\nment company Fira de Barcelona continues to be\na highly profitable, opaque, and carefully guarded\npublic-private organization dedicated to promote\nmega-events for the global capitalist elites.",
-		glm::vec2(1500, 900),
+		glm::vec2(1300, 400),
 		ofColor(255),
 		10,
 		250
@@ -182,28 +182,28 @@ void ofApp::setupAnimations(){
 	);
 	buildingTopText = TextTyping(
 		"AN OPEN, DIVERSE AND AFFORDABLE\nNEIGHBORHOOD IN THE CURRENT MONTJUÌC\nFAIRGROUND\n\nThe grassroots coalition #LaFiraOLaVida has been\nenvisioning a new type of urban development for\nthe future of the Montjuïc fairgrounds. Against the\ngated nature of the current fairground, they\nimagine an open landscape, weaved by continu\nous pedestrian streets that connect the adjacent\nneighborhoods of Poble-sec and Font de la\nGuatlla. They envision the site's main avenue as a\nlinear public park, full of endogenous vegetation\nand spaces for public gather that flow upwards\ninto the hill of Montjuïc and downwards into Plaça\nd'Espanya. They envision a compact neighbor\nhood, designed to house a density of thousands of\nlivelihoods and mixed uses. #LaFiraOLaVida\nprojects an entirely walkable community built on a\nsurplus of affordable living and working spaces\nthat will be permanently welcoming for all of\nBarcelona.",
-		glm::vec2(1350, 350),
+		glm::vec2(1420, 350),
 		ofColor(255),
 		10,
 		250
 	);
 	companiesCenterText = TextTyping(
 		"FIRA DE BARCELONA AND THE CHAMBER OF\nCOMMERCE\n\nFira de Barcelona is a public-private consortium\nformed in 1932 by the City of Barcelona, the\nGeneralitat de Catalunya and the Chamber of\nCommerce. This last one is an independent public\ncorporation that promotes and offers services to\nbusiness entities. Fira de Barcelona occupies two\nseparate fairgrounds on municipal land. The oldest\nof the two offers 140,000m² of expo surface in the\ncenter of Barcelona, right next to the hill of Mon-\ntjuïc. The newest was built in 2007 in the adjacent\nmunicipality of l'Hospitalet but was financed by\nthe City of Barcelona. It offers 240,000m² of expo\nsurface. In 2017, the City of Barcelona gave to Fira\nde Barcelona in limited concession the Internation-\nal Convention Center of Barcelona, which provides\nanother 75,000m² of surface located in the water-\nfront. Fira de Barcelona has an annual revenue of\n210 million euros, while the complete housing\nyearly budget of the City of Barcelona is 165\nmillion euros.",
-		glm::vec2(500, 490),
+		glm::vec2(320, 860),
 		ofColor(255),
 		10,
 		250
 	);
 	companiesLeftText = TextTyping(
 		"THE LAUNCH OF THE CITIZEN PLATFORM\n#LAFIRAOLAVIDA\n\nOn May 30, 2019, a grassroots coalition of over 60\nsocial movements publicly announced its opposi-\ntion to the City of Barcelona's intention to extend\nthe concession of the Montjuïc fairground to Fira\nde Barcelona. The coalition took the name \n#LaFiraOLaVida (the fair or life). Its main objectives\nare: first, to denounce the lack of transparency\nand anti-democratic character of the closed-door\ndeal; and second, to propose alternatives for\nconverting the fairground into an urban common.\n#LaFiraOLaVida presented a public manifesto\ndemanding the halt of all plans to extend the \nconcession and the renovation of the fairground\nand that the city opens a public consultation\ninstead. #LaFiraOLaVida imagines the future of \nthe fairground as an inclusive, open, and diverse\nneighborhood full of affordable housing, retail\nshops, proximity facilities, walkable streets, and\ngreen public spaces of human scale.",
-		glm::vec2(260, 940),
+		glm::vec2(260, 900),
 		ofColor(255),
 		10,
 		250
 	);
 	peopleText = TextTyping(
 		"THE GRASSROOTS MOVEMENTS ENDORS\nING #LAFIRAOLAVIDA\n\nSince its inception, the grassroots coalition\n#LaFiraOLaVida keeps growing and it already\nincludes over 60 social movements, neighborhood\norganizations and civic platforms. From a national\nand city-scale it includes big entities like Sindicat\nde Llogaters, PAH Barcelona or Associació\n500x20 (housing), ATTAC Catalunya, Assemblea\nde Barris per un Turisme Sostenible or Marea\nPensionista (economy), Ecologistes en Acció,\nPlataforma per la Qualitat de l'Aire or Associació\nSalut i Agroecologia (ecology) and Procés Constit-\nuent (democracy). It also includes multiple neigh-\nborhood organizations like Sindicat de Barri del \nPoble-sec, Fem Sant Antoni, Assemblea del Barri\nde Sants, Espai Comunitari Autogestionat de Can\nBatlló, Espai Feminista de Sants, Associació\nCultural El Lokal del Raval, Plataforma en Defensa\nde la Barceloneta, Oficina d'Habitatge Popular de\nGràica, Associació de Veïns i Veïnes de la Sagrada\nFamília.",
-		glm::vec2(1160, 770),
+		glm::vec2(860, 770),
 		ofColor(255),
 		10,
 		250
@@ -224,7 +224,7 @@ void ofApp::setupAnimations(){
 	);
 	aerialRightText = TextTyping(
 		"THE NEW NEIGHBORHOOD AND HOUSING\n\nThe proposed new neighborhood would replace\nthe derelict buildings in the Montjuïc fairground \nfor thousands of new affordable housing units\n—between 5,000 and 10,000, depending on the\ndensity— that would help to improve Barcelona's\nhousing crisis significantly and to contra-rest the\nintensifying gentrification of adjacent neighbor-\nhoods as Poble-sec and Sant Antoni. Far from\nbeing a monofunctional neighborhood or a social\nghetto-like so many peripheral dormitory cities,\nit would be a community-controlled central neigh-\nborhood that would embrace a mixture of func\ntions and populations in a dense fabric built by\nlocal construction cooperatives and organiza-\ntions.",
-		glm::vec2(970, 300),
+		glm::vec2(1010, 450),
 		ofColor(255),
 		10,
 		250
@@ -569,7 +569,7 @@ void ofApp::runAnimation(int animationNum){
 			ofPushStyle();
 			aerialLeftText.update(animationCounter[6]);
 			aerialLeftText.draw();
-			aerialCenterText.update(animationCounter[7]);
+			aerialCenterText.update(animationCounter[6]);
 			aerialCenterText.draw();
 			ofPopStyle();
 			break;
