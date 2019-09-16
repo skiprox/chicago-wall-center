@@ -69,6 +69,7 @@ class ofApp : public ofBaseApp{
         vector<DashedLine> buildingTopDashedLines;
         DashedLine companiesLine,
             aerialToBuildingLine;
+        DottedLine peoplePressLine;
 
         // All image animations
         ImageAnimation companiesAnimation, aerialAnimation, peopleAnimation;
@@ -87,5 +88,8 @@ class ofApp : public ofBaseApp{
             aerialLeftText,
             aerialCenterText,
             aerialRightText;
+
+        // Pointing arrow
+        vector<std::array<glm::vec2, 2>> pressPts;
 		
 };

@@ -108,7 +108,7 @@ void DottedLine::draw() {
 					ofRotate(angle + 90);
 				}
 				if (circleRadius > 4) {
-					ofDrawTriangle(glm::vec2(0 - 16, 0), glm::vec2(0, 16), glm::vec2(16, 0));
+					ofDrawTriangle(glm::vec2(0 - 30, 0), glm::vec2(0, 30), glm::vec2(30, 0));
 				} else {
 					ofDrawTriangle(glm::vec2(0 - 10, 0), glm::vec2(0, 10), glm::vec2(10, 0));
 				}

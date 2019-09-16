@@ -60,6 +60,10 @@ void ofApp::setupAnimations(){
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1370, 840), glm::vec2(fixedWidth/2.0, 840)}});
 	companiesLine = DashedLine(pts, 5.0, red, 250, false);
 	pts.clear();
+	// Press points for the people
+	pressPts.push_back(array<glm::vec2, 2> {{glm::vec2(800, 700), glm::vec2(970, 635)}});
+	peoplePressLine = DottedLine(pressPts, 5.0, red, 75, true);
+	pressPts.clear();
 	// Aerial to upper building dashed lines
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(780, 375), glm::vec2(1350, 375)}});
 	pts.push_back(array<glm::vec2, 2> {{glm::vec2(1350, 375), glm::vec2(1350, 275)}});
@@ -460,6 +464,8 @@ void ofApp::runAnimation(int animationNum){
 			if (!shouldRunAnimation[9]) {
 				companiesCenterText.update(animationCounter[4]);
 				companiesCenterText.draw();
+				peoplePressLine.update(animationCounter[4]);
+				peoplePressLine.draw();
 				handMarkers[9].draw();
 			}
 			ofPopStyle();
