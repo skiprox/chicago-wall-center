@@ -263,7 +263,7 @@ void ofApp::drawBackground(){
 	ofPushStyle();
 	ofBackground(0);
 	background.draw(0, 0, fixedWidth, fixedHeight);
-	buildingBottom.draw(1752 - 183, 652 - 90, 333, 260);
+	buildingBottom.draw(1570, 528, 333, 260);
 	ofPopStyle();
 }
 
@@ -355,7 +355,7 @@ void ofApp::checkShouldRunAnimations(int index){
 			shouldRunOne = true;
 		}
 	} else if (index == 5) { // Companies left
-		if (shouldRunAnimation[1]) {
+		if (shouldRunAnimation[9]) {
 			// Aerial animation
 			shouldRunOne = true;
 		}
