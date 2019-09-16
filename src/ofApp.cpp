@@ -256,20 +256,11 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::drawBackground(){
+	ofPushStyle();
 	ofBackground(0);
-	ofSetColor(255);
-	// Draw up and down lines
-	for (int i = 0; i < 2; i++) {
-		ofDrawRectangle(width/3.0 * (i + 1) - 1, 0, 2, fixedHeight);
-		float divConst = 5.0;
-		if (i == 0) {
-			ofDrawRectangle(0, fixedHeight/divConst, fixedWidth, 2);
-		} else {
-			ofDrawRectangle(0, fixedHeight - fixedHeight/divConst, fixedWidth, 2);
-		}
-	}
 	background.draw(0, 0, fixedWidth, fixedHeight);
 	buildingBottom.draw(1752 - 183, 652 - 90, 333, 260);
+	ofPopStyle();
 }
 
 //--------------------------------------------------------------
