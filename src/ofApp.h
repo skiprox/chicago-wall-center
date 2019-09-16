@@ -91,5 +91,6 @@ class ofApp : public ofBaseApp{
 
         // Pointing arrow
         vector<std::array<glm::vec2, 2>> pressPts;
+        vector<DottedLine> pressLines;
 		
 };
